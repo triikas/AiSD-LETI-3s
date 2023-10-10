@@ -1,4 +1,4 @@
 "A:\Progi\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=A:/Progi/CLion 2022.3.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S A:\LETI\AiSD-LETI-3s -B A:\LETI\AiSD-LETI-3s\cmake-build-debug
--- Configuring done (0.2s)
+-- Configuring done (0.1s)
 -- Generating done (0.0s)
 -- Build files have been written to: A:/LETI/AiSD-LETI-3s/cmake-build-debug

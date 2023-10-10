@@ -4,6 +4,11 @@
 #include <cstdlib>
 #include <chrono>
 #include <bitset>
+#include "Universum.h"
+#include "Mword.h"
+
+//#include "List.h"
+//#include "Array.h"
 using namespace std;
 
 bitset<27> set_to_bv(set<char> inp_set) {
@@ -31,7 +36,6 @@ long long universum(set<char> A, set<char> B, set<char> C, set<char> D) {
 }
 
 set<char> set_generate() {
-    srand(rand());
     set<char> S;
     int start = 0;
     int end = 26;
@@ -45,161 +49,142 @@ set<char> set_generate() {
     return S;
 }
 
-long long sett(set<char> A, set<char> B, set<char> C, set<char> D) {
-    set<char> E;
-    string s = "qwertyuioplkjhgfdsazxcvbnm";
-    auto t1 = chrono::high_resolution_clock::now();
-    for (int i = 0; i < 27; i++) {
-        if (A.find(s[i]) != A.end() && B.find(s[i]) != B.end() && C.find(s[i]) != C.end() && D.find(s[i]) == D.end()) E.insert(s[i]);
-    }
-    auto t2 = chrono::high_resolution_clock::now();
-    auto duration = chrono::duration_cast<chrono::nanoseconds>(t2 - t1).count();
-    return duration;
-}
 
-char* generateCharArray(set<char> charSet) {
-    char* array = new char[charSet.size()];
-    for (int i = 0; i < strlen(array); i++) {
-        array[i] = 'a' + rand() % 26;
-    }
-    return array;
-}
-
-char *findMissingCharacters(char* array1, char* array2, char* array3, char* array4) {
-    set<char> charSet;
-
-    for (int i = 0; i < strlen(array1); ++i) {
-        charSet.insert(array1[i]);
-    }
-
-    for (int i = 0; i < strlen(array2); ++i) {
-        charSet.insert(array2[i]);
-    }
-
-    for (int i = 0; i < strlen(array3); ++i) {
-        charSet.insert(array3[i]);
-    }
-
-    for (int i = 0; i < strlen(array4); ++i) {
-        charSet.erase(array4[i]);
-    }
-    
-    char* resultArray = new char[charSet.size()];
-    int resultIndex = 0;
-    for (char ch: charSet) {
-        resultArray[resultIndex] = ch;
-        resultIndex++;
-    }
-    return resultArray;
-}
-
-struct Node {
-    char data;
-    Node* next;
-};
-
-Node* generateLinkedList(set<char> charSet) {
-    Node* head = nullptr;
-    Node* current = nullptr;
-    for (char ch : charSet) {
-        Node* newNode = new Node;
-        newNode->data = ch;
-        newNode->next = nullptr;
-        if (head == nullptr) {
-            head = newNode;
-            current = newNode;
-        } else {
-            current->next = newNode;
-            current = newNode;
+long long word(set<char> A, set<char> B, set<char> C, set<char> D) {
+    int E = 0;
+    int AA = 0;
+    int BB = 0;
+    int CC = 0;
+    int DD = 0;
+    string s = "qwertyuiopasdfghjklzxcvbnm";
+    for (int i = 0; i < s.size(); ++i) {
+        if (A.find(s[i]) != A.end()) {
+            AA |= 1 << (s[i] - 'a');
         }
     }
-    return head;
-}
-
-Node* findMissingCharacters(Node* list1, Node* list2, Node* list3, Node* list4) {
-    set<char> charSet;
-    Node* current = list1;
-    while (current != nullptr) {
-        charSet.insert(current->data);
-        current = current->next;
+    for (int i = 0; i < s.size(); ++i) {
+        if (B.find(s[i]) != B.end()) {
+            BB |= 1 << (s[i] - 'a');
+        }
     }
-
-    current = list2;
-    while (current != nullptr) {
-        charSet.insert(current->data);
-        current = current->next;
+    for (int i = 0; i < s.size(); ++i) {
+        if (C.find(s[i]) != C.end()) {
+            CC |= 1 << (s[i] - 'a');
+        }
     }
-
-    current = list3;
-    while (current != nullptr) {
-        charSet.insert(current->data);
-        current = current->next;
-    }
-
-    current = list4;
-    while (current != nullptr) {
-        charSet.erase(current->data);
-        current = current->next;
-    }
-    
-    Node *resultHead = nullptr;
-    Node *resultCurrent = nullptr;
-    for (char ch : charSet) {
-        Node* newNode = new Node;
-        newNode->data = ch;
-        newNode->next = nullptr;
-        if (resultHead == nullptr) {
-            resultHead = newNode;
-            resultCurrent = newNode;
-        } else {
-            resultCurrent->next = newNode;
-            resultCurrent = newNode;
+    for (int i = 0; i < s.size(); ++i) {
+        if (D.find(s[i]) != D.end()) {
+            DD |= 1 << (s[i] - 'a');
         }
     }
 
-    return resultHead;
-}
-
-long long arrayt(set<char> A, set<char> B, set<char> C, set<char> D) {
-    char* array1 = generateCharArray(A);
-    char* array2 = generateCharArray(B);
-    char* array3 = generateCharArray(C);
-    char* array4 = generateCharArray(D);
-
     auto t1 = chrono::high_resolution_clock::now();
-    char* missingCharsArray = findMissingCharacters(array1, array2, array3, array4);
+    E = (AA | BB | CC) & ~DD;
     auto t2 = chrono::high_resolution_clock::now();
-
-    auto duration = chrono::duration_cast<chrono::nanoseconds>(t2 - t1);
-    return duration.count();
+    return chrono::duration_cast<chrono::nanoseconds>(t2 - t1).count();
 }
-
-long long listt(set<char> A, set<char> B, set<char> C, set<char> D) {
-    Node* list1 = generateLinkedList(A);
-    Node* list2 = generateLinkedList(B);
-    Node* list3 = generateLinkedList(C);
-    Node* list4 = generateLinkedList(D);
-
-    auto t1 = chrono::high_resolution_clock::now();
-    Node* missingCharsList = findMissingCharacters(list1, list2, list3, list4);
-    auto t2 = chrono::high_resolution_clock::now();
-    
-    auto duration = chrono::duration_cast<chrono::nanoseconds>(t2 - t1);
-    return duration.count();
-}
-
-
 
 int main() {
-    setlocale(LC_ALL, "Rus");
-    set<char> A = set_generate();
-    set<char> B = set_generate();
-    set<char> C = set_generate();
-    set<char> D = set_generate();
-    cout << "Array representation: " << arrayt(A, B, C, D) << " nanoseconds" << endl;
-    cout << "Linked list representation: " << listt(A, B, C, D) << " nanoseconds" << endl;
-    cout << "Representation through a set: " << sett(A, B, C, D) << " nanoseconds" << endl;
-    cout << "Representation through mapping to the universe: " << universum(A, B, C, D) << " nanoseconds" << endl;
-    return 0;
+//    {
+        setlocale(LC_ALL, "Rus");
+        srand(static_cast<unsigned>(time(nullptr)));
+        set<char> A = set_generate();
+        set<char> B = set_generate();
+        set<char> C = set_generate();
+        set<char> D = set_generate();
+        set<char> E;
+        string s = "qwertyuioplkjhgfdsazxcvbnm";
+        for (int i = 0; i < 27; i++) {
+            if ((A.find(s[i]) != A.end() || B.find(s[i]) != B.end() || C.find(s[i]) != C.end()) && D.find(s[i]) == D.end()) E.insert(s[i]);
+        }
+        cout << "Set A:  ";
+         for(char ch : A) {
+             cout << ch << " ";
+         }
+         cout << endl;
+         cout << "Set B:  ";
+         for(char ch : B) {
+             cout << ch << " ";
+         }
+         cout << endl;
+         cout << "Set C:  ";
+         for(char ch : C) {
+             cout << ch << " ";
+         }
+         cout << endl;
+         cout << "Set D:  ";
+         for(char ch : D) {
+             cout << ch << " ";
+         }
+         cout << endl;
+         cout << "Result: ";
+
+         for (char ch : E) {
+             cout << ch << " ";
+         }
+        cout << endl;
+        cout << endl;
+
+//        Array array1(A);
+//        Array array2(B);
+//        Array array3(C);
+//        Array array4(D);
+//        auto t1 = chrono::high_resolution_clock::now();
+//        array1.ShowArray();
+//        auto t2 = chrono::high_resolution_clock::now();
+//        cout << "\nArray print: " << chrono::duration_cast<chrono::microseconds>(t2 - t1).count() << " microseconds" << endl;
+//
+//        //     auto t1 = chrono::high_resolution_clock::now();
+//        //     array1.findMissingCharacters(array2, array3, array4);
+//        //     auto t2 = chrono::high_resolution_clock::now();
+//        //     cout << "Array representation: " << chrono::duration_cast<chrono::nanoseconds>(t2 - t1).count() << " nanoseconds" << endl;
+//
+//
+//        List list1(A);
+//        List list2{B};
+//        List list3{C};
+//        List list4{D};
+//
+//        t1 = chrono::high_resolution_clock::now();
+//        list1.ShowList();
+//        t2 = chrono::high_resolution_clock::now();
+//
+//        cout << "\nLinked list print: " << chrono::duration_cast<chrono::microseconds>(t2 - t1).count() << " microseconds" << endl;
+
+
+        Universum universum1(A);
+        Universum universum2(B);
+        Universum universum3(C);
+        Universum universum4(D);
+
+        auto t1 = chrono::high_resolution_clock::now();
+        universum3.show();
+        auto t2 = chrono::high_resolution_clock::now();
+        cout << "\nUniversum print: " << chrono::duration_cast<chrono::microseconds>(t2 - t1).count() << " microseconds";
+
+        t1 = chrono::high_resolution_clock::now();
+        Universum universum5 = (universum1 |= universum2 |= universum3) &= universum4.invers();
+        t2 = chrono::high_resolution_clock::now();
+        cout << "\nUniversum algorithm: " << chrono::duration_cast<chrono::nanoseconds>(t2 - t1).count() << " nanoseconds" << endl;
+        cout <<endl;
+
+        Mword mword1(A);
+        Mword mword2(B);
+        Mword mword3(C);
+        Mword mword4(D);
+
+        t1 = chrono::high_resolution_clock::now();
+        mword4.show();
+        t2 = chrono::high_resolution_clock::now();
+        cout << "\nMword print: " << chrono::duration_cast<chrono::microseconds>(t2 - t1).count() << " microseconds";
+
+        t1 = chrono::high_resolution_clock::now();
+        Mword mword5 = (mword1 |= mword2 |= mword3) &= mword4.invers();
+        t2 = chrono::high_resolution_clock::now();
+        cout << "\nMword algorithm: " << chrono::duration_cast<chrono::nanoseconds>(t2 - t1).count() << " nanoseconds" << endl;
+
+
+        getchar();
+         return 0;
+//    }(cin.get());
 }
-// норм
