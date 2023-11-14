@@ -39,46 +39,79 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = A$:/LETI/AiSD-LETI-3s/cmake-build-debug/
+cmake_ninja_workdir = A$:/leti-projects/AiSD-LETI-3s/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target AiSD_LETI_3s
+# Object build statements for EXECUTABLE target lab1-2
 
 
 #############################################
-# Order-only phony target for AiSD_LETI_3s
+# Order-only phony target for lab1-2
 
-build cmake_object_order_depends_target_AiSD_LETI_3s: phony || CMakeFiles/AiSD_LETI_3s.dir
+build cmake_object_order_depends_target_lab1-2: phony || CMakeFiles/lab1-2.dir
 
-build CMakeFiles/AiSD_LETI_3s.dir/main.cpp.obj: CXX_COMPILER__AiSD_LETI_3s_unscanned_Debug A$:/LETI/AiSD-LETI-3s/main.cpp || cmake_object_order_depends_target_AiSD_LETI_3s
-  DEP_FILE = CMakeFiles\AiSD_LETI_3s.dir\main.cpp.obj.d
+build CMakeFiles/lab1-2.dir/main.cpp.obj: CXX_COMPILER__lab1-2_unscanned_Debug A$:/leti-projects/AiSD-LETI-3s/main.cpp || cmake_object_order_depends_target_lab1-2
+  DEP_FILE = CMakeFiles\lab1-2.dir\main.cpp.obj.d
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\AiSD_LETI_3s.dir
-  OBJECT_FILE_DIR = CMakeFiles\AiSD_LETI_3s.dir
+  OBJECT_DIR = CMakeFiles\lab1-2.dir
+  OBJECT_FILE_DIR = CMakeFiles\lab1-2.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target AiSD_LETI_3s
+# Link build statements for EXECUTABLE target lab1-2
 
 
 #############################################
-# Link the executable AiSD_LETI_3s.exe
+# Link the executable lab1-2.exe
 
-build AiSD_LETI_3s.exe: CXX_EXECUTABLE_LINKER__AiSD_LETI_3s_Debug CMakeFiles/AiSD_LETI_3s.dir/main.cpp.obj
+build lab1-2.exe: CXX_EXECUTABLE_LINKER__lab1-2_Debug CMakeFiles/lab1-2.dir/main.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\AiSD_LETI_3s.dir
+  OBJECT_DIR = CMakeFiles\lab1-2.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = AiSD_LETI_3s.exe
-  TARGET_IMPLIB = libAiSD_LETI_3s.dll.a
-  TARGET_PDB = AiSD_LETI_3s.exe.dbg
+  TARGET_FILE = lab1-2.exe
+  TARGET_IMPLIB = liblab1-2.dll.a
+  TARGET_PDB = lab1-2.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target lab3
+
+
+#############################################
+# Order-only phony target for lab3
+
+build cmake_object_order_depends_target_lab3: phony || CMakeFiles/lab3.dir
+
+build CMakeFiles/lab3.dir/lab3.cpp.obj: CXX_COMPILER__lab3_unscanned_Debug A$:/leti-projects/AiSD-LETI-3s/lab3.cpp || cmake_object_order_depends_target_lab3
+  DEP_FILE = CMakeFiles\lab3.dir\lab3.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\lab3.dir
+  OBJECT_FILE_DIR = CMakeFiles\lab3.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target lab3
+
+
+#############################################
+# Link the executable lab3.exe
+
+build lab3.exe: CXX_EXECUTABLE_LINKER__lab3_Debug CMakeFiles/lab3.dir/lab3.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\lab3.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = lab3.exe
+  TARGET_IMPLIB = liblab3.dll.a
+  TARGET_PDB = lab3.exe.dbg
 
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D A:\LETI\AiSD-LETI-3s\cmake-build-debug && "A:\Progi\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D A:\leti-projects\AiSD-LETI-3s\cmake-build-debug && "A:\Progi\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -89,7 +122,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D A:\LETI\AiSD-LETI-3s\cmake-build-debug && "A:\Progi\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SA:\LETI\AiSD-LETI-3s -BA:\LETI\AiSD-LETI-3s\cmake-build-debug"
+  COMMAND = cmd.exe /C "cd /D A:\leti-projects\AiSD-LETI-3s\cmake-build-debug && "A:\Progi\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SA:\leti-projects\AiSD-LETI-3s -BA:\leti-projects\AiSD-LETI-3s\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -99,7 +132,9 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build AiSD_LETI_3s: phony AiSD_LETI_3s.exe
+build lab1-2: phony lab1-2.exe
+
+build lab3: phony lab3.exe
 
 # =============================================================================
 # Folder targets.
@@ -107,9 +142,9 @@ build AiSD_LETI_3s: phony AiSD_LETI_3s.exe
 # =============================================================================
 
 #############################################
-# Folder: A:/LETI/AiSD-LETI-3s/cmake-build-debug
+# Folder: A:/leti-projects/AiSD-LETI-3s/cmake-build-debug
 
-build all: phony AiSD_LETI_3s.exe
+build all: phony lab1-2.exe lab3.exe
 
 # =============================================================================
 # Built-in targets
@@ -118,14 +153,14 @@ build all: phony AiSD_LETI_3s.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | A$:/LETI/AiSD-LETI-3s/CMakeLists.txt A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake A$:/leti-projects/AiSD-LETI-3s/CMakeLists.txt CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build A$:/LETI/AiSD-LETI-3s/CMakeLists.txt A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake: phony
+build A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake A$:/Progi/CLion$ 2022.3.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake A$:/leti-projects/AiSD-LETI-3s/CMakeLists.txt CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake: phony
 
 
 #############################################

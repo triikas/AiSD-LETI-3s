@@ -1,4 +1,4 @@
-# Install script for directory: A:/LETI/AiSD-LETI-3s
+# Install script for directory: A:/leti-projects/AiSD-LETI-3s
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "A:/LETI/AiSD-LETI-3s/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "A:/leti-projects/AiSD-LETI-3s/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
