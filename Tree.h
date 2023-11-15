@@ -23,6 +23,7 @@ public:
     Knot* get_left() {return left;};
     Knot* get_center() {return center;};
     Knot* get_right() {return right;};
+    Knot* get_father() {return father;};
 };
 
 class Tree {
@@ -32,6 +33,7 @@ private:
 public:
     Tree();
     void create_simple_tree();
+    void create_random_tree();
     void add_knot(char let_inp, Knot* father_inp, int knot_num);
 //    void del_knot(char let_inp);
     void show(string prefix, Knot* kn, int kid_num);
@@ -57,7 +59,7 @@ void Knot::add_kid(Knot *kid_inp, int knot_num) {
 }
 
 Tree::Tree() {
-    root = Knot('a');
+    root = Knot('q');
 }
 
 void Tree::add_knot(char let_inp, Knot *father_inp, int knot_num) {
@@ -100,21 +102,75 @@ void Tree::create_simple_tree() {
     root.get_center()->get_center()->add_kid(kid, 2);
 }
 
+string ss = "qwertyuioplkjhgfdsazxcvbnm";
+int ii = -1;
+
+void FRL_inn(Knot* kn) {
+    if (kn != NULL) {
+//        v.push_back(kn->get_let());
+        if (kn->get_left() == NULL) {
+            if (rand()%3 == 1 && ii <25) {
+                ii++;
+                Knot* kid = new Knot(ss[ii]);
+                kid->add_father(kn);
+                kn->add_kid(kid, 1);
+            }
+        }
+        if (kn->get_center() == NULL) {
+            if (rand()%3 == 1 && ii < 25) {
+                ii++;
+                Knot* kid = new Knot(ss[ii]);
+                kid->add_father(kn);
+                kn->add_kid(kid, 2);
+            }
+        }
+        if (kn->get_right() == NULL) {
+            if (rand()%3 == 1 && ii < 25) {
+                ii++;
+                Knot* kid = new Knot(ss[ii]);
+                kid->add_father(kn);
+                kn->add_kid(kid, 3);
+            }
+        }
+        FRL_inn(kn->get_left());
+//        cout << kn->get_let() << " ";
+        FRL_inn(kn->get_center());
+        FRL_inn(kn->get_right());
+    }
+}
+
+void Tree::create_random_tree() {
+    ii = -1;
+    srand(time(0));
+    for (int i = 0; i < 3; ++i) {
+        if (rand()%2 == 1) {
+            ii++;
+            Knot* kid = new Knot(s[ii]);
+            kid->add_father(&root);
+            root.add_kid(kid, i+1);
+        }
+
+    }
+    FRL_inn(&root);
+
+}
+
 void Tree::show(string prefix, Knot* kn, int kid_num) {
-    SetConsoleCP(65001);
+//    SetConsoleCP(65001);
     if (kn != NULL){
         cout << prefix;
         if (kid_num != 1) {
-            cout << "|--";
+            cout << "|---";
 //            cout << "├──";
         } else {
-            cout << "\\--";
+            cout << "\\---";
 //            cout << "└──";
         }
         cout << kn->get_let() << endl;
-        show(prefix + (kid_num == 1 ? "    " : "│   "), kn->get_right(), 3);
-        show(prefix + (kid_num == 1 ? "    " : "│   "), kn->get_center(), 2);
-        show(prefix + (kid_num == 1 ? "    " : "│   "), kn->get_left(), 1);
+//        show(prefix + (kid_num == 1 ? "    " : "│   "), kn->get_right(), 3);
+        show(prefix + (kid_num == 1 ? "    " : "|   "), kn->get_right(), 3);
+        show(prefix + (kid_num == 1 ? "    " : "|   "), kn->get_center(), 2);
+        show(prefix + (kid_num == 1 ? "    " : "|   "), kn->get_left(), 1);
     }
 
 
