@@ -103,7 +103,7 @@ void Tree::create_simple_tree() {
 }
 
 string ss = "qwertyuioplkjhgfdsazxcvbnm";
-int ii = -1;
+int ii = 0;
 
 void FRL_inn(Knot* kn) {
     if (kn != NULL) {
@@ -140,7 +140,7 @@ void FRL_inn(Knot* kn) {
 }
 
 void Tree::create_random_tree() {
-    ii = -1;
+    ii = 0;
     srand(time(0));
     for (int i = 0; i < 3; ++i) {
         if (rand()%2 == 1) {
