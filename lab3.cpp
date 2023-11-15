@@ -35,7 +35,7 @@ void FRL_in(Knot* kn) {
 int main() {
     Tree tr;
     tr.create_simple_tree();
-//    tr.show("", tr.get_root(), 1);
+    tr.show("", tr.get_root(), 1);
 //    num_RL = 0;
 //    FRL_in(tr.get_root());
 //    cout << "  " << num_RL << endl;

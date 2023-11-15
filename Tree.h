@@ -4,13 +4,14 @@
 #include <ctime>
 #include <cstring>
 #include <map>
+#include <windows.h>
 
 using namespace std;
 
 class Knot {
 private:
     char let;
-    Knot* father;
+    Knot* father = NULL;
     Knot* left = NULL;
     Knot* center = NULL;
     Knot* right = NULL;
@@ -70,35 +71,45 @@ void Tree::add_knot(char let_inp, Knot *father_inp, int knot_num) {
 }
 
 void Tree::create_simple_tree() {
-    Knot kid('.');
+
     for (int i = 0; i < 3; ++i) {
-        kid = Knot(s[i+1]);
-        root.add_kid(&kid, i+1);
+
+        Knot* kid = new Knot(s[i+1]);
+        kid->add_father(&root);
+        root.add_kid(kid, i+1);
 
     }
+
     for (int j = 0; j < 3; ++j) {
-        kid = Knot(s[4+j]);
-        root.get_left()->add_kid(&kid, j+1);
+        Knot* kid = new Knot(s[4+j]);
+        kid->add_father(root.get_left());
+        root.get_left()->add_kid(kid, j+1);
     }
     for (int j = 0; j < 3; ++j) {
-        kid = Knot(s[7+j]);
-        root.get_left()->add_kid(&kid, j+1);
+        Knot* kid =  new Knot(s[7+j]);
+        kid->add_father(root.get_center());
+        root.get_center()->add_kid(kid, j+1);
     }
     for (int j = 0; j < 3; ++j) {
-        kid = Knot(s[10+j]);
-        root.get_left()->add_kid(&kid, j+1);
+        Knot* kid = new Knot(s[10+j]);
+        kid->add_father(root.get_right());
+        root.get_right()->add_kid(kid, j+1);
     }
-    kid = Knot(s[14]);
-    root.get_center()->get_center()->add_kid(&kid, 2);
+    Knot* kid = new Knot(s[14]);
+    kid->add_father(root.get_center()->get_center());
+    root.get_center()->get_center()->add_kid(kid, 2);
 }
 
 void Tree::show(string prefix, Knot* kn, int kid_num) {
+    SetConsoleCP(65001);
     if (kn != NULL){
         cout << prefix;
         if (kid_num != 1) {
-            cout << "├──";
+            cout << "|--";
+//            cout << "├──";
         } else {
-            cout << "└──";
+            cout << "\\--";
+//            cout << "└──";
         }
         cout << kn->get_let() << endl;
         show(prefix + (kid_num == 1 ? "    " : "│   "), kn->get_right(), 3);

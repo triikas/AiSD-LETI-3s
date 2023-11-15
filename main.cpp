@@ -6,34 +6,10 @@
 #include <bitset>
 #include "Universum.h"
 #include "Mword.h"
-
 //#include "List.h"
 //#include "Array.h"
 using namespace std;
 
-bitset<27> set_to_bv(set<char> inp_set) {
-    string s = "qwertyuioplkjhgfdsazxcvbnm";
-    bitset<27> S;
-    S.reset();
-    for (int i = 0; i < s.length(); i++) {
-        if (inp_set.count(s[i]) != 0) S.set(i, true);
-    }
-    return S;
-}
-
-long long universum(set<char> A, set<char> B, set<char> C, set<char> D) {
-    bitset<27> E;
-    E.reset();
-    bitset<27> AA = set_to_bv(A);
-    bitset<27> BB = set_to_bv(B);
-    bitset<27> CC = set_to_bv(C);
-    bitset<27> DD = set_to_bv(D);
-    auto t1 = chrono::high_resolution_clock::now();
-    E = (AA |= BB |= CC) &= DD.flip();
-    auto t2 = chrono::high_resolution_clock::now();
-    auto duration = chrono::duration_cast<chrono::nanoseconds>(t2 - t1).count();
-    return duration;
-}
 
 set<char> set_generate() {
     set<char> S;
@@ -49,40 +25,6 @@ set<char> set_generate() {
     return S;
 }
 
-
-long long word(set<char> A, set<char> B, set<char> C, set<char> D) {
-    int E = 0;
-    int AA = 0;
-    int BB = 0;
-    int CC = 0;
-    int DD = 0;
-    string s = "qwertyuiopasdfghjklzxcvbnm";
-    for (int i = 0; i < s.size(); ++i) {
-        if (A.find(s[i]) != A.end()) {
-            AA |= 1 << (s[i] - 'a');
-        }
-    }
-    for (int i = 0; i < s.size(); ++i) {
-        if (B.find(s[i]) != B.end()) {
-            BB |= 1 << (s[i] - 'a');
-        }
-    }
-    for (int i = 0; i < s.size(); ++i) {
-        if (C.find(s[i]) != C.end()) {
-            CC |= 1 << (s[i] - 'a');
-        }
-    }
-    for (int i = 0; i < s.size(); ++i) {
-        if (D.find(s[i]) != D.end()) {
-            DD |= 1 << (s[i] - 'a');
-        }
-    }
-
-    auto t1 = chrono::high_resolution_clock::now();
-    E = (AA | BB | CC) & ~DD;
-    auto t2 = chrono::high_resolution_clock::now();
-    return chrono::duration_cast<chrono::nanoseconds>(t2 - t1).count();
-}
 
 int main() {
 //    {
